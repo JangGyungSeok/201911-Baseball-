@@ -1,0 +1,117 @@
+
+<!-- 김수연 작성파일-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        padding:20px;
+    }
+
+    .bordertable th{
+        background-color: #f7f8fa;        
+        text-align: center;
+    }
+
+    .bordertable td{
+        padding-left:20px !important;
+    }  
+
+    .bordertable th, .bordertable td{
+        font-family: '나눔고딕',NanumGothic,'맑은고딕',MalgunGothic,'돋움',Dotum,Helvetica,sans-serif;
+        font-size: 12px;      
+        border:1px solid #ededed !important;
+        font-weight: normal;          
+        line-height: 19px;
+        color:black;
+        padding-top: 9px !important;
+        padding-bottom: 7px !important;
+    }
+
+    .th120 th{
+        width:120px;
+    }
+</style>
+<body>
+    <h1>{{user_input}}</h1>
+    <h2>{{result_str}}</h2>
+    <h2>결과값 = {{result}}</h2>
+
+    상위 15% KBO 기준성적 : 피안타수/상대한 타자수 = 0.25 , 평균자책점 = 5<br>
+
+    <h2>{{user_input}}의 역대 MBL 성적</h2>
+    <table class='table table-bordered bordertable'>        
+    <tr>
+        <td>팀</td>
+        <td>년도</td>
+        <td>승리기여도</td>
+        <td>타석수</td>
+        <td>피안타</td>
+        <td>피홈런</td>
+        <td>피볼넷</td>
+        <td>피사구</td>
+        <td>삼진수</td>
+        <td>출루허용률</td>
+        <td>타구 안타비율</td>
+        <td>자책점</td>
+        <td>라인드라이브</td>
+        <td>땅볼</td>
+        <td>플라이볼</td>
+        <td>인필드플라이볼</td>
+        <td>헛스윙</td>
+        <td>스윙</td>
+    </tr>
+    {% for idx in range(idxs) %}
+    <tr>
+    <td>{{data_list['team'][idx]}}</td>
+    <td>{{data_list['year'][idx]}}</td>
+    <td>{{data_list['ERA'][idx]}}</td>
+    <td>{{data_list['WAR'][idx]}}</td>
+    <td>{{data_list['TBF'][idx]}}</td>
+    <td>{{data_list['H'][idx]}}</td>
+    <td>{{data_list['HR'][idx]}}</td>
+    <td>{{data_list['BB'][idx]}}</td>
+    <td>{{data_list['HBP'][idx]}}</td>
+    <td>{{data_list['SO'][idx]}}</td>
+    <td>{{data_list['WHIP'][idx]}}</td>
+    <td>{{data_list['FIP'][idx]}}</td>
+    <td>{{data_list['LD'][idx]}}</td>
+    <td>{{data_list['GB'][idx]}}</td>
+    <td>{{data_list['FB'][idx]}}</td>
+    <td>{{data_list['IFFB'][idx]}}</td>
+    <td>{{data_list['Swing'][idx]}}</td>
+    <td>{{data_list['SWStr'][idx]}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td>평균</td>
+        <td>=</td>
+        <td>{{avg_list[0]}}</td>
+        <td>{{avg_list[1]}}</td>
+        <td>{{avg_list[2]}}</td>
+        <td>{{avg_list[3]}}</td>
+        <td>{{avg_list[4]}}</td>
+        <td>{{avg_list[5]}}</td>
+        <td>{{avg_list[6]}}</td>
+        <td>{{avg_list[7]}}</td>
+        <td>{{avg_list[8]}}</td>
+        <td>{{avg_list[9]}}</td>
+        <td>{{avg_list[10]}}</td>
+        <td>{{avg_list[11]}}</td>
+        <td>{{avg_list[12]}}</td>
+        <td>{{avg_list[13]}}</td>
+        <td>{{avg_list[14]}}</td>
+        <td>{{avg_list[15]}}</td>
+
+        </tr>
+    </table>
+
+    <!--<p>{{practice}}</p>-->
+</body>
+</html>
